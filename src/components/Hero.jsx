@@ -1,10 +1,10 @@
 ﻿import React from 'react';
-import { Calendar, ArrowRight, Sparkles, MapPin, Award, Heart } from 'lucide-react';
+import { Calendar, ArrowRight, Sparkles, MapPin, Award, Heart, CheckCircle2 } from 'lucide-react';
 import FryCrewLogo from './FryCrewLogo';
 
 export default function Hero({ onOpenBooking }) {
   return (
-    <section className="relative bg-[#222B1E] text-[#F5F2E9] overflow-hidden pt-8 pb-16 lg:pt-16 lg:pb-24 border-b border-[#A67C2D]/30">
+    <section className="relative bg-[#222B1E] text-[#F5F2E9] overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24 border-b border-[#A67C2D]/30">
       {/* Background Decorative Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-[#FEC72E] blur-3xl"></div>
@@ -21,18 +21,35 @@ export default function Hero({ onOpenBooking }) {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Headlines & Statements */}
+          {/* Left Column: Headlines, Master Logo Presence & Statements */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Top Badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#2D3928] border border-[#A67C2D]/50 text-[#FEC72E] text-xs font-semibold tracking-wider uppercase shadow-inner">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Der mobile Foodtruck in Hannover</span>
-              <span className="text-[#F5F2E9]/60">·</span>
-              <span className="text-[#F5F2E9]">Est. 2026</span>
+            
+            {/* Prominent Brand Identity Header: Official Master Logo & Trust Badge */}
+            <div className="flex items-center gap-4 sm:gap-5 pb-1">
+              <div className="relative group shrink-0">
+                <div className="absolute -inset-1 rounded-full bg-[#FEC72E] opacity-70 blur-md group-hover:opacity-100 transition duration-300"></div>
+                <FryCrewLogo 
+                  className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 ring-4 ring-[#FEC72E] shadow-2xl border-2 border-[#222B1E]" 
+                  priority={true} 
+                />
+              </div>
+              
+              <div className="space-y-1.5">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D3928] border border-[#A67C2D]/60 text-[#FEC72E] text-xs font-bold tracking-wider uppercase shadow-inner">
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Der mobile Foodtruck in Hannover</span>
+                  <span className="text-[#F5F2E9]/60">·</span>
+                  <span className="text-[#F5F2E9]">Est. 2026</span>
+                </div>
+                <div className="text-xs sm:text-sm font-medium text-[#F5F2E9]/80 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Offizielles Original: Handwerklich & kross</span>
+                </div>
+              </div>
             </div>
 
             {/* Main Headline (CI Bebas Neue) */}
-            <div className="space-y-1">
+            <div className="space-y-1 pt-1">
               <h1 className="font-bebas text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] text-[#F5F2E9]">
                 EXTREM LANG. <br />
                 <span className="text-[#FEC72E] drop-shadow-sm">EXTREM LECKER.</span>
@@ -63,7 +80,7 @@ export default function Hero({ onOpenBooking }) {
               <a
                 href="#booking"
                 onClick={onOpenBooking}
-                className="bg-[#FEC72E] hover:bg-[#E8B320] text-[#222B1E] font-bebas text-2xl tracking-wide px-8 py-3.5 rounded-xl shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2 group"
+                className="bg-[#FEC72E] hover:bg-[#E8B320] text-[#222B1E] font-bebas text-2xl tracking-wide px-8 py-3.5 rounded-xl shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 text-center flex items-center justify-center gap-2 group cursor-pointer"
               >
                 <Calendar className="w-5 h-5 transition-transform group-hover:scale-110" />
                 <span>Foodtruck anfragen</span>
@@ -96,9 +113,8 @@ export default function Hero({ onOpenBooking }) {
 
           </div>
 
-          {/* Right Column: Hero Visual & Master Badge */}
+          {/* Right Column: Hero Visual & Large Master Logo Seal */}
           <div className="lg:col-span-5 relative">
-            {/* Visual Container */}
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
               {/* Image Frame with CI Gold/Bronze Border */}
@@ -134,13 +150,13 @@ export default function Hero({ onOpenBooking }) {
                 </div>
               </div>
 
-              {/* Floating Authentic Master Logo Badge */}
-              <div className="absolute -top-8 -right-6 sm:-right-8 bg-[#F5F2E9] p-2 rounded-full shadow-2xl border-4 border-[#222B1E] transform rotate-6 hover:rotate-0 transition-transform duration-300">
-                <FryCrewLogo className="w-24 h-24 sm:w-28 sm:h-28" />
+              {/* Large, Eye-Catching Master Logo Seal */}
+              <div className="absolute -top-10 -right-4 sm:-right-8 bg-[#F5F2E9] p-2.5 rounded-full shadow-2xl border-4 border-[#222B1E] ring-4 ring-[#FEC72E] transform rotate-3 hover:rotate-0 transition-all duration-300 z-20">
+                <FryCrewLogo className="w-28 h-28 sm:w-36 sm:h-36 md:w-40 md:h-40" priority={true} />
               </div>
 
               {/* Secondary floating badge */}
-              <div className="hidden sm:flex items-center gap-2 absolute -bottom-5 -left-6 bg-[#FEC72E] text-[#222B1E] px-4 py-2 rounded-xl shadow-xl font-bebas text-lg tracking-wider border-2 border-[#222B1E]">
+              <div className="hidden sm:flex items-center gap-2 absolute -bottom-5 -left-6 bg-[#FEC72E] text-[#222B1E] px-4 py-2 rounded-xl shadow-xl font-bebas text-lg tracking-wider border-2 border-[#222B1E] z-10">
                 <Heart className="w-5 h-5 text-red-700 fill-red-700 animate-pulse" />
                 <span>Familie · Pommes · Glück</span>
               </div>

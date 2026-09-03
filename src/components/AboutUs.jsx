@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { Heart, Users, Sparkles, Truck, CheckCircle } from 'lucide-react';
 import FryCrewLogo from './FryCrewLogo';
 
@@ -87,9 +87,10 @@ export default function AboutUs() {
                 />
               </div>
 
-              {/* Center Floating Quote Emblem */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F5F2E9] text-[#222B1E] p-4 rounded-2xl border-4 border-[#FEC72E] shadow-2xl text-center max-w-[210px]">
-                <div className="font-bebas text-xl sm:text-2xl text-[#222B1E] leading-none mb-1">
+              {/* Center Floating Quote Emblem with Master Logo */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F5F2E9] text-[#222B1E] p-3 sm:p-4 rounded-3xl border-4 border-[#FEC72E] shadow-2xl text-center max-w-[220px] flex flex-col items-center">
+                <FryCrewLogo className="w-20 h-20 sm:w-24 sm:h-24 mb-2 ring-2 ring-[#222B1E] shadow-md" />
+                <div className="font-bebas text-xl sm:text-2xl text-[#222B1E] leading-none mb-0.5">
                   EXTREM LANG.
                 </div>
                 <div className="font-bebas text-xl sm:text-2xl text-[#A67C2D] leading-none mb-1">

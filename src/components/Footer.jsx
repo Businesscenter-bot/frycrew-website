@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { MapPin, Phone, Mail, Heart, ArrowUp } from 'lucide-react';
 import FryCrewLogo from './FryCrewLogo';
 
@@ -17,9 +17,9 @@ export default function Footer({ onOpenImpressum, onOpenDatenschutz }) {
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-4">
-              <FryCrewLogo className="w-16 h-16" showClaim={false} />
+              <FryCrewLogo className="w-20 h-20 sm:w-24 sm:h-24 ring-2 ring-[#FEC72E] shadow-xl" />
               <div>
-                <span className="font-bebas text-3xl tracking-wider text-[#F5F2E9] block leading-none">
+                <span className="font-bebas text-3xl sm:text-4xl tracking-wider text-[#F5F2E9] block leading-none">
                   FRYCREW
                 </span>
                 <span className="text-xs text-[#FEC72E] font-bold uppercase tracking-widest">

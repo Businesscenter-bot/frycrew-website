@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, Calendar, PhoneCall, MapPin, Sparkles } from 'lucide-react';
 import FryCrewLogo from './FryCrewLogo';
 
@@ -63,13 +63,18 @@ export default function Navbar({ onOpenBooking, onOpenImpressum, onOpenDatenschu
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo & Name */}
-          <a href="#" className="flex items-center gap-3 group">
-            <FryCrewLogo className="w-12 h-12 sm:w-14 sm:h-14 transition-transform group-hover:scale-105" showClaim={false} />
+          <a href="#" className="flex items-center gap-3.5 group">
+            <div className="relative">
+              <FryCrewLogo 
+                className="w-14 h-14 sm:w-16 sm:h-16 ring-2 ring-[#FEC72E] shadow-lg transition-transform group-hover:scale-105" 
+                priority={true} 
+              />
+            </div>
             <div className="flex flex-col">
               <span className="font-bebas text-2xl sm:text-3xl tracking-wider text-[#F5F2E9] leading-none group-hover:text-[#FEC72E] transition-colors">
                 FRYCREW
               </span>
-              <span className="text-[10px] tracking-widest text-[#FEC72E] font-semibold uppercase -mt-0.5">
+              <span className="text-[10px] sm:text-[11px] tracking-widest text-[#FEC72E] font-bold uppercase -mt-0.5">
                 30cm Longfries · Hannover
               </span>
             </div>
