@@ -143,7 +143,7 @@ export default function Navbar({ onOpenBooking, onOpenImpressum, onOpenDatenschu
                 <span>Jetzt Catering anfragen</span>
               </a>
               <div className="text-center text-xs text-[#F5F2E9]/70 pt-1">
-                📍 Hannover & Region · Tel: 0511 / 897-FRY
+                📍 Hannover & Region · Tel: <a href="tel:+4951199995210" className="text-[#FEC72E] font-semibold">+49 511 9999 5210</a>
               </div>
             </div>
           </div>

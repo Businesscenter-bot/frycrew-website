@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Calendar, Users, MapPin, Send, CheckCircle2, AlertTriangle, Sparkles, Building, Mail, Phone, Clock, FileText } from 'lucide-react';
 
 export default function BookingForm() {
@@ -120,7 +120,7 @@ export default function BookingForm() {
               </div>
 
               <div className="text-xs text-[#F5F2E9]/60 max-w-sm mx-auto">
-                Wir melden uns schnellstmöglich bei dir zurück. Bei dringenden Fragen erreichst du uns direkt unter <strong className="text-[#F5F2E9]">0511 / 897-FRY</strong>.
+                Wir melden uns schnellstmöglich bei dir zurück. Bei dringenden Fragen erreichst du uns direkt unter <strong className="text-[#F5F2E9]">+49 511 9999 5210</strong>.
               </div>
 
               <button

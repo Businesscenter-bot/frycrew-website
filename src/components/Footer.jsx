@@ -113,17 +113,18 @@ export default function Footer({ onOpenImpressum, onOpenDatenschutz }) {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#FEC72E] shrink-0 mt-0.5" />
                 <span>
-                  <strong>Hannover & Region Hannover</strong><br />
-                  (Entferntere Events auf Anfrage)
+                  <strong>Frycrew Hannover</strong><br />
+                  Kampsriede 6a, 30659 Hannover<br />
+                  <span className="text-xs text-[#F5F2E9]/70">(Einsatzgebiet: Hannover & Region)</span>
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#FEC72E] shrink-0" />
-                <span>0511 / 897-FRY (0511 / 897 379)</span>
+                <a href="tel:+4951199995210" className="hover:text-[#FEC72E] transition-colors">+49 511 9999 5210</a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#FEC72E] shrink-0" />
-                <span>hallo@frycrew.de</span>
+                <a href="mailto:info@businesscenterhannover.de" className="hover:text-[#FEC72E] transition-colors">info@businesscenterhannover.de</a>
               </div>
             </div>
 
