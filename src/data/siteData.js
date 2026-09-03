@@ -1,4 +1,4 @@
-﻿export const MENU_ITEMS = [
+export const MENU_ITEMS = [
   {
     id: "classic",
     title: "Klassik Gold",
@@ -63,6 +63,17 @@
 
 export const TOUR_EVENTS = [
   {
+    id: "ev-bothfeld",
+    date: "19.-20. Sep 2026",
+    time: "Sa. 11:00 - 22:00 | So. 11:00 - 18:00 Uhr",
+    title: "30. Bothfelder Herbstmarkt 2026",
+    location: "Kurze-Kamp-Straße, 30659 Hannover-Bothfeld",
+    city: "Hannover-Bothfeld",
+    type: "Familien- & Stadtteilfest",
+    status: "Bestätigt",
+    desc: "Heimspiel für die FryCrew! Zum 30. Jubiläum des Bothfelder Herbstmarkts bringen wir die 30cm Pommes-Sensation direkt in unseren Heimat-Stadtteil.",
+  },
+  {
     id: "ev-1",
     date: "12. Sep 2026",
     time: "12:00 - 21:00 Uhr",
@@ -75,17 +86,6 @@ export const TOUR_EVENTS = [
   },
   {
     id: "ev-2",
-    date: "19. Sep 2026",
-    time: "14:00 - 22:00 Uhr",
-    title: "Herbstzauber am Maschsee",
-    location: "Maschsee Nordufer, Hannover",
-    city: "Hannover",
-    type: "Open Air Event",
-    status: "Bestätigt",
-    desc: "Frische heiße 30cm Pommes bei Seeblick und entspannter Live-Musik.",
-  },
-  {
-    id: "ev-3",
     date: "26. Sep 2026",
     time: "11:00 - 18:00 Uhr",
     title: "Streetfood Markt Garbsen",
@@ -96,7 +96,7 @@ export const TOUR_EVENTS = [
     desc: "Die FryCrew zu Gast in Garbsen – perfekt für Familien und Pommes-Liebhaber.",
   },
   {
-    id: "ev-4",
+    id: "ev-3",
     date: "03. Okt 2026",
     time: "12:00 - 20:00 Uhr",
     title: "Kulturfest Faust & Linden",
@@ -109,6 +109,14 @@ export const TOUR_EVENTS = [
 ];
 
 export const NEWS_ITEMS = [
+  {
+    id: "news-bothfeld",
+    date: "03. September 2026",
+    title: "Heimspiel: FryCrew auf dem 30. Bothfelder Herbstmarkt 2026!",
+    category: "Event Highlight",
+    excerpt: "Am 19. & 20. September 2026 rollt unser Foodtruck direkt in die Kurze-Kamp-Straße nach Bothfeld. Feiert mit uns das große 30. Jubiläum!",
+    content: "Als echter Hannoveraner Betrieb mit Sitz in Bothfeld (Kampsriede) freuen wir uns riesig auf dieses Heimspiel! Auf dem 30. Bothfelder Herbstmarkt erwarten euch zwei Tage lang Live-Musik, Festumzug, Aktionen für Groß und Klein und die krossesten 30cm Longfries Hannovers.",
+  },
   {
     id: "news-1",
     date: "01. September 2026",
