@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { Briefcase, Heart, Cake, PartyPopper, Check, AlertCircle, MapPin, Sparkles, ArrowRight } from 'lucide-react';
 import { HANNOVER_REGIONS } from '../data/siteData';
 
@@ -230,6 +230,59 @@ export default function CateringEvents({ onOpenBooking }) {
                 Diese {guestCount} Personen jetzt im Anfrageformular übernehmen &rarr;
               </a>
             </div>
+          </div>
+        </div>
+
+        {/* Real Foodtruck Setup Showcase for Caterings */}
+        <div className="mt-16 bg-[#222B1E] text-[#F5F2E9] rounded-3xl p-6 sm:p-10 border-2 border-[#A67C2D] shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-7 rounded-2xl overflow-hidden border-2 border-[#FEC72E] shadow-xl group">
+              <img
+                src="/images/frycrew-truck-real.jpg"
+                alt="FryCrew Foodtruck Komplett-Setup für Events in Hannover"
+                className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="lg:col-span-5 space-y-4">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#2D3928] text-[#FEC72E] text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Alles Inklusive für dein Fest</span>
+              </div>
+              <h3 className="font-bebas text-3xl sm:text-4xl text-[#F5F2E9] leading-tight">
+                DAS VOLLE FRYCREW ERLEBNIS AUF DEINEM EVENT
+              </h3>
+              <p className="text-xs sm:text-sm text-[#F5F2E9]/80 leading-relaxed">
+                Unser Foodtruck kommt komplett ausgestattet zu dir: inklusive beleuchtetem Dach-Logo, stylischen Roll-Up-Bannern, rustikalen Deko-Pflanzen und unserer Spezialpresse für bis zu 35 cm lange Pommes.
+              </p>
+              <ul className="space-y-2 text-xs sm:text-sm text-[#F5F2E9]/90">
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-[#FEC72E] shrink-0" />
+                  <span>Autark oder mit 230V / 400V Stromanschluss einsetzbar</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-[#FEC72E] shrink-0" />
+                  <span>Schnelle Ausgabe von bis zu 120+ Portionen pro Stunde</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-[#FEC72E] shrink-0" />
+                  <span>Komplett sauber & rückstandslos nach Eventende</span>
+                </li>
+              </ul>
+              <div className="pt-2">
+                <a
+                  href="#booking"
+                  onClick={onOpenBooking}
+                  className="inline-flex items-center gap-2 bg-[#FEC72E] hover:bg-[#E8B320] text-[#222B1E] font-bebas text-xl px-6 py-2.5 rounded-xl font-bold shadow transition-all hover:scale-105"
+                >
+                  <span>Truck für dein Event sichern</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 

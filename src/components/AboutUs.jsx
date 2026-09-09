@@ -63,45 +63,48 @@ export default function AboutUs() {
             </div>
           </div>
 
-          {/* Right Column: Visual Collage with Truck & Prep */}
-          <div className="lg:col-span-6">
-            <div className="relative grid grid-cols-2 gap-4">
-              
-              {/* Image 1: Foodtruck in Hannover */}
-              <div className="rounded-2xl overflow-hidden border-2 border-[#A67C2D] shadow-xl group">
-                <img
-                  src="/images/foodtruck.jpg"
-                  alt="FryCrew Foodtruck im Einsatz auf einem Event in Hannover"
-                  className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
+          {/* Right Column: Visual Showcase with Real Foodtruck & Prep */}
+          <div className="lg:col-span-6 space-y-4">
+            
+            {/* Real Foodtruck Photo Showcase */}
+            <div className="relative rounded-3xl overflow-hidden border-2 border-[#FEC72E] shadow-2xl group bg-[#1A2217]">
+              <img
+                src="/images/frycrew-truck-real.jpg"
+                alt="Der echte FryCrew Foodtruck im Einsatz mit Roll-Ups und Holz-Deko in Hannover"
+                className="w-full h-72 sm:h-96 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
+              />
+              <div className="absolute top-3 left-3 bg-[#222B1E]/90 backdrop-blur-xs text-[#FEC72E] border border-[#A67C2D]/40 px-3 py-1.5 rounded-xl text-xs font-bold font-bebas tracking-wide flex items-center gap-1.5 shadow">
+                <span className="w-2 h-2 rounded-full bg-[#FEC72E] animate-pulse"></span>
+                <span>Original FryCrew Foodtruck</span>
               </div>
+              <div className="absolute bottom-3 right-3 bg-[#222B1E]/90 backdrop-blur-xs text-[#F5F2E9] border border-[#A67C2D]/40 px-3 py-1 rounded-xl text-[11px] font-medium shadow">
+                📍 Hannover & Region
+              </div>
+            </div>
 
-              {/* Image 2: Prep action with seasoning */}
-              <div className="rounded-2xl overflow-hidden border-2 border-[#A67C2D] shadow-xl group mt-8 sm:mt-12">
+            {/* Bottom Row: Prep Action & Guarantee Banner */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden border-2 border-[#A67C2D]/40 shadow-lg group bg-[#1A2217]">
                 <img
                   src="/images/prep-action.jpg"
-                  alt="Frisch frittierte 30cm Pommes werden gewürzt"
-                  className="w-full h-64 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
+                  alt="Frisch zubereitete 30cm Pommes werden veredelt"
+                  className="w-full h-36 sm:h-44 object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
 
-              {/* Center Floating Quote Emblem with Master Logo */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#F5F2E9] text-[#222B1E] p-3 sm:p-4 rounded-3xl border-4 border-[#FEC72E] shadow-2xl text-center max-w-[220px] flex flex-col items-center">
-                <FryCrewLogo className="w-20 h-20 sm:w-24 sm:h-24 mb-2 ring-2 ring-[#222B1E] shadow-md" />
-                <div className="font-bebas text-xl sm:text-2xl text-[#222B1E] leading-none mb-0.5">
-                  EXTREM LANG.
+              <div className="bg-[#283323] p-4 rounded-2xl border border-[#A67C2D]/30 flex flex-col justify-center text-center space-y-1 shadow-lg">
+                <FryCrewLogo className="w-12 h-12 mx-auto mb-1 ring-1 ring-[#FEC72E]" />
+                <div className="font-bebas text-lg sm:text-xl text-[#F5F2E9] leading-tight">
+                  EXTREM LANG. EXTREM LECKER.
                 </div>
-                <div className="font-bebas text-xl sm:text-2xl text-[#A67C2D] leading-none mb-1">
-                  EXTREM LECKER.
-                </div>
-                <div className="text-[10px] uppercase font-bold text-[#222B1E]/60 tracking-wider">
-                  Handwerk · Hannover
+                <div className="text-[10px] text-[#FEC72E] uppercase font-bold tracking-wider">
+                  100% Streetfood-Leidenschaft
                 </div>
               </div>
-
             </div>
+
           </div>
 
         </div>

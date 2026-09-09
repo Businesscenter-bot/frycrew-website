@@ -1,142 +1,219 @@
 ﻿import React, { useState } from 'react';
-import { UtensilsCrossed, Star, Check, Sparkles } from 'lucide-react';
-import { MENU_ITEMS } from '../data/siteData';
+import { UtensilsCrossed, Star, Check, Sparkles, ZoomIn, X, Flame } from 'lucide-react';
+import { MENU_ITEMS, SAUCES_LIST } from '../data/siteData';
 
 export default function MenuShowcase() {
-  const [filter, setFilter] = useState('all');
-
-  const filteredItems = MENU_ITEMS.filter((item) => {
-    if (filter === 'all') return true;
-    if (filter === 'veg') return item.tags.some((t) => t.toLowerCase().includes('vegetarisch'));
-    if (filter === 'sweet') return item.tags.some((t) => t.toLowerCase().includes('süß'));
-    if (filter === 'highlight') return item.badge.includes('Favorit') || item.badge.includes('Bestseller');
-    return true;
-  });
+  const [selectedPoster, setSelectedPoster] = useState(false);
 
   return (
     <section id="menu" className="py-16 lg:py-24 bg-[#EBE7DC] text-[#222B1E] border-t border-b border-[#A67C2D]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Title */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
+        <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#222B1E] text-[#FEC72E] text-xs font-bold uppercase tracking-wider">
             <UtensilsCrossed className="w-3.5 h-3.5" />
-            <span>Kreative Toppings & Saucen</span>
+            <span>Handwerkliche Streetfood-Kreationen</span>
           </div>
           <h2 className="font-bebas text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#222B1E]">
-            UNSERE <span className="text-[#A67C2D]">FRYCREW KREATIONEN</span>
+            UNSERE <span className="text-[#A67C2D]">LONG FRIES KREATIONEN</span>
           </h2>
           <p className="text-base sm:text-lg text-[#222B1E]/80">
-            Jede Portion wird mit 30 cm frisch gebackenen Longfries serviert. Wähle deinen Favoriten oder stelle für dein Catering ein individuelles Menü zusammen.
+            Jede Portion wird mit 30 cm frisch gepressten Longfries serviert. Knusprig, heiß und mit besten Saucen und Toppings veredelt.
           </p>
-
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-            {[
-              { id: 'all', label: 'Alle Sorten' },
-              { id: 'highlight', label: '⭐ Bestseller & Favoriten' },
-              { id: 'veg', label: '🌱 Vegetarisch' },
-              { id: 'sweet', label: '🍨 Süßes Dessert' },
-            ].map((btn) => (
-              <button
-                key={btn.id}
-                onClick={() => setFilter(btn.id)}
-                className={`px-4 py-2 rounded-full text-xs font-semibold tracking-wide transition-all duration-200 cursor-pointer ${
-                  filter === btn.id
-                    ? 'bg-[#222B1E] text-[#FEC72E] shadow-md'
-                    : 'bg-white/80 hover:bg-white text-[#222B1E] border border-[#A67C2D]/30'
-                }`}
-              >
-                {btn.label}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Menu Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-[#F5F2E9] rounded-2xl p-6 border-2 border-[#A67C2D]/30 hover:border-[#FEC72E] shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-            >
+        {/* 2-Column Showcase: Menu Poster on Left, Cards on Right */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+          
+          {/* Left Column: Official Menu Board Poster Feature */}
+          <div className="lg:col-span-5 bg-[#222B1E] text-[#F5F2E9] p-5 sm:p-6 rounded-3xl border-2 border-[#A67C2D] shadow-2xl space-y-4">
+            <div className="flex items-center justify-between border-b border-[#A67C2D]/30 pb-3">
               <div>
-                {/* Card Top: Badge & Highlight */}
-                <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="bg-[#222B1E] text-[#FEC72E] text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    {item.badge}
-                  </span>
-                  <span className="text-xs font-script text-[#A67C2D] font-bold text-base">
-                    {item.highlight}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="font-bebas text-3xl text-[#222B1E] leading-tight group-hover:text-[#A67C2D] transition-colors">
-                  {item.title}
+                <span className="text-[11px] font-bold text-[#FEC72E] uppercase tracking-wider block">
+                  Original Foodtruck-Aushang
+                </span>
+                <h3 className="font-bebas text-2xl text-[#F5F2E9]">
+                  Offizielle Menükarte
                 </h3>
-                <p className="text-xs font-medium text-[#A67C2D] mb-3">
-                  {item.subtitle}
-                </p>
+              </div>
+              <button
+                onClick={() => setSelectedPoster(true)}
+                className="inline-flex items-center gap-1.5 bg-[#FEC72E] text-[#222B1E] font-bebas text-sm px-3 py-1.5 rounded-xl font-bold cursor-pointer hover:bg-[#E8B320] transition-colors shadow"
+              >
+                <ZoomIn className="w-4 h-4" />
+                <span>Vergrößern</span>
+              </button>
+            </div>
 
-                {/* Description */}
-                <p className="text-sm text-[#222B1E]/80 leading-relaxed mb-4">
-                  {item.description}
-                </p>
+            {/* Poster Preview Image with Click to Zoom */}
+            <div 
+              onClick={() => setSelectedPoster(true)}
+              className="relative rounded-2xl overflow-hidden cursor-pointer group border border-[#A67C2D]/40 bg-[#171E14]"
+            >
+              <img
+                src="/images/frycrew-menu-poster.png"
+                alt="FryCrew Offizielle Menükarte - Unsere Long Fries"
+                className="w-full h-[520px] sm:h-[580px] object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-bebas text-xl backdrop-blur-xs">
+                <ZoomIn className="w-6 h-6 text-[#FEC72E]" />
+                <span>Klicken zum Vergrößern</span>
+              </div>
+            </div>
 
-                {/* Saucen & Toppings List */}
-                <div className="space-y-1.5 pt-2 border-t border-[#A67C2D]/20">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#222B1E]/60">
-                    Toppings & Finish:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {item.sauces.map((sauce, idx) => (
+            <div className="text-center text-xs text-[#F5F2E9]/70 pt-1">
+              🔍 <em>Tipp:</em> Klicke auf die Menükarte, um alle Details in voller Auflösung zu sehen.
+            </div>
+          </div>
+
+          {/* Right Column: Interactive Menu Cards */}
+          <div className="lg:col-span-7 space-y-4">
+            
+            {/* Creations Cards */}
+            {MENU_ITEMS.map((item) => (
+              <div
+                key={item.id}
+                className="bg-[#F5F2E9] rounded-2xl p-5 sm:p-6 border-2 border-[#A67C2D]/30 hover:border-[#222B1E] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
+              >
+                <div className="space-y-1.5 flex-1">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="bg-[#222B1E] text-[#FEC72E] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      {item.badge}
+                    </span>
+                    <span className="text-xs font-script text-[#A67C2D] font-bold text-sm">
+                      {item.highlight}
+                    </span>
+                    <span className="text-[11px] bg-white text-[#222B1E] px-2 py-0.5 rounded font-medium border border-[#A67C2D]/20">
+                      30 cm
+                    </span>
+                  </div>
+
+                  <h3 className="font-bebas text-2xl sm:text-3xl text-[#222B1E] leading-tight group-hover:text-[#A67C2D] transition-colors">
+                    {item.title}
+                  </h3>
+                  
+                  <p className="text-xs font-semibold text-[#A67C2D] uppercase tracking-wider">
+                    {item.subtitle}
+                  </p>
+
+                  <p className="text-xs sm:text-sm text-[#222B1E]/80 leading-relaxed pt-1">
+                    {item.description}
+                  </p>
+
+                  {/* Toppings Badges */}
+                  <div className="flex flex-wrap gap-1.5 pt-2">
+                    {item.sauces.map((s, idx) => (
                       <span
                         key={idx}
-                        className="inline-flex items-center gap-1 text-xs bg-white px-2.5 py-1 rounded-md border border-[#A67C2D]/20 font-medium text-[#222B1E]"
+                        className="inline-flex items-center gap-1 text-[11px] bg-white px-2 py-0.5 rounded-md border border-[#A67C2D]/20 font-medium text-[#222B1E]"
                       >
                         <Check className="w-3 h-3 text-[#A67C2D]" />
-                        {sauce}
+                        {s}
                       </span>
                     ))}
                   </div>
                 </div>
-              </div>
 
-              {/* Card Footer: Tags */}
-              <div className="mt-6 pt-3 border-t border-[#A67C2D]/20 flex items-center justify-between text-xs text-[#222B1E]/70">
-                <div className="flex items-center gap-1.5">
-                  {item.tags.map((tag, i) => (
-                    <span key={i} className="bg-[#222B1E]/5 px-2 py-0.5 rounded text-[11px] font-medium">
-                      {tag}
-                    </span>
-                  ))}
+                {/* Price Pill */}
+                <div className="sm:self-center shrink-0 text-right sm:border-l sm:border-[#A67C2D]/20 sm:pl-5 pt-2 sm:pt-0">
+                  <div className="font-bebas text-3xl sm:text-4xl text-[#222B1E] tracking-tight leading-none text-left sm:text-right">
+                    {item.price}
+                  </div>
+                  <div className="text-[10px] uppercase font-bold text-[#222B1E]/60 tracking-wider">
+                    pro Portion
+                  </div>
                 </div>
-                <span className="font-bebas text-lg text-[#222B1E]">30 cm</span>
               </div>
-            </div>
-          ))}
+            ))}
+
+          </div>
+
+        </div>
+
+        {/* Dedicated Sauces Bar Section */}
+        <div className="bg-[#222B1E] text-[#F5F2E9] rounded-3xl p-6 sm:p-10 border-2 border-[#A67C2D] shadow-2xl">
+          <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#FEC72E]">
+              Handgemachte Saucen-Vielfalt
+            </span>
+            <h3 className="font-bebas text-3xl sm:text-4xl text-[#F5F2E9]">
+              UNSERE 9 FEINEN SAUCEN
+            </h3>
+            <p className="text-xs sm:text-sm text-[#F5F2E9]/80">
+              Ob cremig, würzig, edel oder feurig – wähle deine Lieblingssaucen zu jeder Portion Longfries:
+            </p>
+          </div>
+
+          {/* Sauces Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+            {SAUCES_LIST.map((sauce, idx) => (
+              <div
+                key={idx}
+                className="bg-[#283323] p-3.5 rounded-2xl border border-[#A67C2D]/30 hover:border-[#FEC72E] transition-all text-center space-y-1.5 group hover:-translate-y-0.5"
+              >
+                <div 
+                  className="w-10 h-10 rounded-full mx-auto shadow-inner border-2 border-white/20 group-hover:scale-110 transition-transform flex items-center justify-center text-xs font-bold"
+                  style={{ backgroundColor: sauce.color }}
+                >
+                  <Sparkles className="w-4 h-4 text-white/90 drop-shadow" />
+                </div>
+                <div className="font-bebas text-lg text-[#F5F2E9] leading-tight">
+                  {sauce.name}
+                </div>
+                <div className="text-[10px] text-[#FEC72E] font-medium leading-tight">
+                  {sauce.flavor}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Custom Catering Request Banner */}
-        <div className="mt-12 bg-[#222B1E] text-[#F5F2E9] rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border border-[#A67C2D]">
+        <div className="mt-10 bg-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-2 border-[#A67C2D]/30 shadow-lg">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="font-bebas text-2xl sm:text-3xl text-[#FEC72E]">
+            <h4 className="font-bebas text-2xl sm:text-3xl text-[#222B1E]">
               Eigene Saucen-Kreationen für dein Event?
             </h4>
-            <p className="text-sm text-[#F5F2E9]/80 max-w-xl">
-              Ob Firmen-Farben, spezielle vegetarische/vegane Menüs oder individuelle Topping-Bars: Wir passen unsere Speisekarte flexibel an deine Veranstaltung in Hannover an!
+            <p className="text-sm text-[#222B1E]/80 max-w-xl">
+              Ob Firmen-Jubiläum, Hochzeit oder Geburtstag: Wir stellen für dein Event in Hannover gerne dein individuelles Lieblings-Topping-Sortiment zusammen!
             </p>
           </div>
           <a
             href="#booking"
-            className="bg-[#FEC72E] hover:bg-[#E8B320] text-[#222B1E] font-bebas text-xl px-6 py-2.5 rounded-xl shrink-0 font-bold transition-all shadow hover:scale-105"
+            className="bg-[#FEC72E] hover:bg-[#E8B320] text-[#222B1E] font-bebas text-xl px-6 py-3 rounded-xl shrink-0 font-bold transition-all shadow hover:scale-105"
           >
             Jetzt anfragen &rarr;
           </a>
         </div>
 
       </div>
+
+      {/* Fullscreen Lightbox Modal for Menu Poster */}
+      {selectedPoster && (
+        <div 
+          onClick={() => setSelectedPoster(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-sm animate-in fade-in duration-200 cursor-zoom-out"
+        >
+          <div 
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-md w-full max-h-[95vh] flex flex-col items-center"
+          >
+            <button
+              onClick={() => setSelectedPoster(false)}
+              className="absolute -top-12 right-0 text-white hover:text-[#FEC72E] p-1.5 bg-black/50 rounded-full transition-colors cursor-pointer"
+              aria-label="Schließen"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <img
+              src="/images/frycrew-menu-poster.png"
+              alt="FryCrew Menükarte Vollansicht"
+              className="w-auto h-auto max-h-[90vh] rounded-2xl shadow-2xl border-2 border-[#A67C2D] object-contain"
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
