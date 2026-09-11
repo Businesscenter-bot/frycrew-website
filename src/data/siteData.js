@@ -1,4 +1,10 @@
-﻿export const MENU_ITEMS = [
+export const SOCIAL_LINKS = {
+  instagram: "https://www.instagram.com/fry_crew/",
+  facebook: "https://www.facebook.com/profile.php?id=61594285970279",
+  instagramHandle: "@fry_crew",
+};
+
+export const MENU_ITEMS = [
   {
     id: "truffle",
     title: "Trüffel & Parmesan",
