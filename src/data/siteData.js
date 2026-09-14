@@ -119,9 +119,28 @@ export const TOUR_EVENTS = [
     status: "In Planung",
     desc: "Streetfood mit Haltung: Knusprige Longfries im Herzen von Hannover-Linden.",
   },
+  {
+    id: "ev-weihnachten-bothfeld",
+    date: "05. Dez 2026",
+    time: "14:00 - 19:00 Uhr",
+    title: "Bothfelder Weihnachtsmarkt 2026",
+    location: "Rund um St. Nicolai & Rohdenhof (Sutelstraße), 30659 Hannover-Bothfeld",
+    city: "Hannover-Bothfeld",
+    type: "Traditioneller Weihnachtsmarkt",
+    status: "Bestätigt",
+    desc: "Winterzauber & Heimspiel in Bothfeld! Heiße 30cm Longfries zwischen Lichterglanz, Kunsthandwerk und festlicher Vorweihnachtsstimmung an der St.-Nicolai-Kirche.",
+  },
 ];
 
 export const NEWS_ITEMS = [
+  {
+    id: "news-weihnachten-bothfeld",
+    date: "14. September 2026",
+    title: "Winter-Highlight: FryCrew auf dem Bothfelder Weihnachtsmarkt!",
+    category: "Event Highlight",
+    excerpt: "Am Samstag, den 5. Dezember 2026 (14–19 Uhr), bringen wir heiße 30cm Longfries zum Bothfelder Weihnachtsmarkt an die St.-Nicolai-Kirche.",
+    content: "Glühweinduft, Lichterglanz und knusprige Pommes-Liebe: Auch im Winter ist die FryCrew in unserem Heimat-Stadtteil Bothfeld für euch da! Rund um den Kirchplatz der St.-Nicolai-Kirche und den Rohdenhof servieren wir euch winterliche Kreationen frisch aus der Fritteuse.",
+  },
   {
     id: "news-bothfeld",
     date: "03. September 2026",
