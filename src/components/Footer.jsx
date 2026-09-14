@@ -133,7 +133,7 @@ export default function Footer({ onOpenImpressum, onOpenDatenschutz }) {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#FEC72E] shrink-0" />
-                <a href="mailto:info@businesscenterhannover.de" className="hover:text-[#FEC72E] transition-colors">info@businesscenterhannover.de</a>
+                <a href="mailto:kliche@businesscenterhannover.de" className="hover:text-[#FEC72E] transition-colors">kliche@businesscenterhannover.de</a>
               </div>
             </div>
 

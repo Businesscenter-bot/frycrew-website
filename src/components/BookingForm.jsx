@@ -36,15 +36,41 @@ export default function BookingForm() {
     setFormData((prev) => ({ ...prev, guestCount: String(num) }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate reliable form processing
-    setTimeout(() => {
+    try {
+      await fetch('https://formsubmit.co/ajax/kliche@businesscenterhannover.de', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `🍟 Neue FryCrew Catering-Anfrage: ${formData.eventType} (${formData.guestCount} Gäste) von ${formData.fullName}`,
+          _replyto: formData.email,
+          _template: 'table',
+          _captcha: 'false',
+          'Name des Kunden': formData.fullName,
+          'Firma / Organisation': formData.company || 'Privatperson',
+          'E-Mail-Adresse': formData.email,
+          'Telefonnummer': formData.phone,
+          'Art der Veranstaltung': formData.eventType,
+          'Wunschdatum': formData.eventDate || 'Noch offen / flexibel',
+          'Gästeanzahl': `${formData.guestCount} Personen`,
+          'Veranstaltungsort': `${formData.locationAddress ? formData.locationAddress + ', ' : ''}${formData.locationZip} ${formData.locationCity}`,
+          'Region-Check': formData.locationZip?.startsWith('30') ? '✓ Hannover Kerngebiet' : '⚠ Außerhalb Region Hannover (Sonderprüfung)',
+          'Stromanschluss vor Ort': formData.powerAvailable,
+          'Wünsche & Notizen': formData.notes || 'Keine Angabe',
+        }),
+      });
+    } catch (err) {
+      console.warn('Formular-Übermittlung:', err);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 800);
+    }
   };
 
   return (
