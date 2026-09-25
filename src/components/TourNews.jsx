@@ -1,11 +1,66 @@
-﻿import React, { useState } from 'react';
-import { Calendar, MapPin, Clock, Tag, Newspaper, ArrowUpRight, Bell } from 'lucide-react';
+﻿import React, { useState, useMemo } from 'react';
+import { Calendar, MapPin, Clock, Tag, Newspaper, ArrowUpRight, Bell, Sparkles, CheckCircle2 } from 'lucide-react';
 import { TOUR_EVENTS, NEWS_ITEMS } from '../data/siteData';
+
+const GERMAN_MONTHS = {
+  jan: 0, feb: 1, mär: 2, mrz: 2, apr: 3, mai: 4, jun: 5,
+  jul: 6, aug: 7, sep: 8, okt: 9, nov: 10, dez: 11
+};
+
+function parseGermanDateRange(str) {
+  if (!str) return null;
+  const parts = str.trim().split(/\s+/);
+  if (parts.length < 3) return null;
+  const year = parseInt(parts[parts.length - 1], 10);
+  const monthStr = parts[parts.length - 2].toLowerCase().replace('.', '');
+  const month = GERMAN_MONTHS[monthStr] !== undefined ? GERMAN_MONTHS[monthStr] : 0;
+  
+  const dayMatches = parts[0].match(/\d+/g);
+  if (!dayMatches || dayMatches.length === 0) return null;
+  
+  const startDay = parseInt(dayMatches[0], 10);
+  const endDay = parseInt(dayMatches[dayMatches.length - 1], 10);
+  
+  const startDate = new Date(year, month, startDay, 0, 0, 0);
+  const endDate = new Date(year, month, endDay, 23, 59, 59, 999);
+  
+  return { startDate, endDate };
+}
 
 export default function TourNews() {
   const [activeTab, setActiveTab] = useState('tour'); // 'tour' | 'news'
   const [subscribed, setSubscribed] = useState(false);
   const [email, setEmail] = useState('');
+
+  // Dynamically filter out past events and sort chronologically (nearest upcoming first)
+  const upcomingEvents = useMemo(() => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    return TOUR_EVENTS
+      .map((event) => {
+        let start = event.startDate ? new Date(event.startDate + 'T00:00:00') : null;
+        let end = event.endDate ? new Date(event.endDate + 'T23:59:59') : null;
+
+        if (!start || !end) {
+          const parsed = parseGermanDateRange(event.date);
+          if (parsed) {
+            start = start || parsed.startDate;
+            end = end || parsed.endDate;
+          }
+        }
+        return { ...event, _start: start, _end: end };
+      })
+      .filter((event) => {
+        if (!event._end) return true;
+        return event._end >= today; // Only active & upcoming events
+      })
+      .sort((a, b) => {
+        const timeA = a._start ? a._start.getTime() : 0;
+        const timeB = b._start ? b._start.getTime() : 0;
+        return timeA - timeB; // Ascending: Nearest upcoming event first
+      });
+  }, []);
 
   const handleSubscribe = (e) => {
     e.preventDefault();
@@ -29,7 +84,7 @@ export default function TourNews() {
             TOURDATEN & <span className="text-[#A67C2D]">AKTUELLE NEWS</span>
           </h2>
           <p className="text-base sm:text-lg text-[#222B1E]/80">
-            Hier erfährst du, wo der FryCrew-Truck als Nächstes in Hannover hält und welche Neuigkeiten es rund um unsere 30cm Longfries gibt.
+            Hier erfährst du immer tagesaktuell, wo der FryCrew-Truck als Nächstes in Hannover hält und welche Neuigkeiten es gibt.
           </p>
 
           {/* Tab Selector */}
@@ -43,7 +98,7 @@ export default function TourNews() {
               }`}
             >
               <Calendar className="w-4 h-4" />
-              <span>Öffentliche Tourdaten ({TOUR_EVENTS.length})</span>
+              <span>Öffentliche Tourdaten ({upcomingEvents.length})</span>
             </button>
             <button
               onClick={() => setActiveTab('news')}
@@ -62,66 +117,106 @@ export default function TourNews() {
         {/* Tab 1: Tour Dates */}
         {activeTab === 'tour' && (
           <div className="space-y-4 max-w-4xl mx-auto">
-            {TOUR_EVENTS.map((event) => (
-              <div
-                key={event.id}
-                className="bg-white rounded-2xl p-6 border border-[#A67C2D]/30 hover:border-[#222B1E] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
-              >
-                {/* Date Badge */}
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 rounded-xl bg-[#222B1E] text-[#F5F2E9] flex flex-col items-center justify-center shrink-0 border border-[#A67C2D]/40">
-                    <span className="text-[11px] uppercase font-bold text-[#FEC72E]">
-                      {event.date.split(' ')[1]}
-                    </span>
-                    <span className="font-bebas text-3xl leading-none text-white">
-                      {event.date.split(' ')[0]}
-                    </span>
-                    <span className="text-[10px] text-[#F5F2E9]/60">
-                      {event.date.split(' ')[2]}
-                    </span>
-                  </div>
+            {upcomingEvents.length > 0 ? (
+              upcomingEvents.map((event, index) => {
+                const isNext = index === 0;
+                return (
+                  <div
+                    key={event.id}
+                    className={`bg-white rounded-2xl p-6 border transition-all flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm hover:shadow-md ${
+                      isNext
+                        ? 'border-2 border-[#FEC72E] ring-2 ring-[#FEC72E]/20 bg-linear-to-r from-amber-50/40 via-white to-white'
+                        : 'border-[#A67C2D]/30 hover:border-[#222B1E]'
+                    }`}
+                  >
+                    {/* Date Badge */}
+                    <div className="flex items-center gap-4">
+                      <div className={`w-20 h-20 rounded-xl flex flex-col items-center justify-center shrink-0 border ${
+                        isNext 
+                          ? 'bg-[#222B1E] text-[#FEC72E] border-[#FEC72E] shadow-md' 
+                          : 'bg-[#222B1E] text-[#F5F2E9] border-[#A67C2D]/40'
+                      }`}>
+                        <span className="text-[11px] uppercase font-bold text-[#FEC72E]">
+                          {event.date.split(' ')[1]}
+                        </span>
+                        <span className="font-bebas text-3xl leading-none text-white">
+                          {event.date.split(' ')[0]}
+                        </span>
+                        <span className="text-[10px] text-[#F5F2E9]/60">
+                          {event.date.split(' ')[2]}
+                        </span>
+                      </div>
 
-                  {/* Details */}
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-xs bg-[#222B1E]/5 text-[#222B1E] font-semibold px-2.5 py-0.5 rounded-full">
-                        {event.type}
-                      </span>
-                      <span className="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
-                        ✓ {event.status}
-                      </span>
+                      {/* Details */}
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          {isNext && (
+                            <span className="text-xs bg-[#FEC72E] text-[#222B1E] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-xs">
+                              <Sparkles className="w-3 h-3" /> Nächster Halt
+                            </span>
+                          )}
+                          <span className="text-xs bg-[#222B1E]/5 text-[#222B1E] font-semibold px-2.5 py-0.5 rounded-full">
+                            {event.type}
+                          </span>
+                          <span className="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">
+                            ✓ {event.status}
+                          </span>
+                        </div>
+                        <h3 className="font-bebas text-2xl text-[#222B1E]">
+                          {event.title}
+                        </h3>
+                        <div className="flex flex-wrap items-center gap-4 text-xs text-[#222B1E]/75">
+                          <span className="flex items-center gap-1 font-medium">
+                            <MapPin className="w-3.5 h-3.5 text-[#A67C2D]" />
+                            {event.location} ({event.city})
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-3.5 h-3.5 text-[#A67C2D]" />
+                            {event.time}
+                          </span>
+                        </div>
+                        <p className="text-xs text-[#222B1E]/70 pt-1">
+                          {event.desc}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="font-bebas text-2xl text-[#222B1E]">
-                      {event.title}
-                    </h3>
-                    <div className="flex flex-wrap items-center gap-4 text-xs text-[#222B1E]/75">
-                      <span className="flex items-center gap-1 font-medium">
-                        <MapPin className="w-3.5 h-3.5 text-[#A67C2D]" />
-                        {event.location} ({event.city})
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-[#A67C2D]" />
-                        {event.time}
-                      </span>
+
+                    {/* Right Action */}
+                    <div className="md:self-center shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-gray-100">
+                      <a
+                        href="#booking"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A67C2D] hover:text-[#222B1E] hover:underline"
+                      >
+                        <span>Für eigenes Event buchen</span>
+                        <ArrowUpRight className="w-4 h-4" />
+                      </a>
                     </div>
-                    <p className="text-xs text-[#222B1E]/70 pt-1">
-                      {event.desc}
-                    </p>
                   </div>
+                );
+              })
+            ) : (
+              /* Fallback if all tour dates are completed */
+              <div className="bg-white rounded-3xl p-8 sm:p-12 border-2 border-[#A67C2D]/30 text-center space-y-4 shadow-sm">
+                <div className="w-16 h-16 rounded-full bg-[#F5F2E9] text-[#A67C2D] flex items-center justify-center mx-auto border border-[#A67C2D]/30">
+                  <Calendar className="w-8 h-8" />
                 </div>
-
-                {/* Right Action */}
-                <div className="md:self-center shrink-0 pt-2 md:pt-0 border-t md:border-t-0 border-gray-100">
+                <h3 className="font-bebas text-3xl text-[#222B1E]">
+                  NEUE TOURDATEN IN VORBEREITUNG!
+                </h3>
+                <p className="text-sm text-[#222B1E]/80 max-w-md mx-auto leading-relaxed">
+                  Aktuell sind alle bisherigen Tourdaten absolviert. Die nächsten Haltestellen für Hannover und die Region werden in Kürze bekanntgegeben!
+                </p>
+                <div className="pt-2">
                   <a
                     href="#booking"
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#A67C2D] hover:text-[#222B1E] hover:underline"
+                    className="inline-flex items-center gap-2 bg-[#FEC72E] hover:bg-[#E8B320] text-[#222B1E] font-bebas text-xl px-6 py-2.5 rounded-xl font-bold shadow transition-all hover:scale-105"
                   >
-                    <span>Für eigenes Event buchen</span>
-                    <ArrowUpRight className="w-4 h-4" />
+                    <span>Foodtruck für dein privates Event anfragen</span>
+                    <ArrowUpRight className="w-5 h-5" />
                   </a>
                 </div>
               </div>
-            ))}
+            )}
 
             {/* Note about private events */}
             <div className="p-4 rounded-xl bg-[#F5F2E9] border border-[#A67C2D]/30 text-xs text-center text-[#222B1E]/70">
@@ -175,7 +270,7 @@ export default function TourNews() {
           <div className="w-10 h-10 rounded-full bg-[#FEC72E] text-[#222B1E] flex items-center justify-center mx-auto mb-2">
             <Bell className="w-5 h-5" />
           </div>
-          <h3 className="font-bebas text-2xl sm:text-3xl text-[#F5F2E9]">
+          <h3 className="font-bebas text-2xl text-[#F5F2E9]">
             KEINEN STANDORT IN HANNOVER VERPASSEN
           </h3>
           <p className="text-xs sm:text-sm text-[#F5F2E9]/80 max-w-lg mx-auto">
