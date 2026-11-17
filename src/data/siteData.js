@@ -223,6 +223,10 @@ export const HANNOVER_REGIONS = [
 
 export const FAQ_ITEMS = [
   {
+    q: "Bietet ihr auch Loaded Fries an?",
+    a: "Ja, absolut! All unsere Flaggschiff-Kreationen (wie Trüffel & Parmesan, Dutch Joppie & Crispy Onions oder Chili Cheese Explosion) sind vollwertige Gourmet Loaded Fries. Durch die 30 cm Länge und die besonders krosse Kruste unserer Longfries weichen sie auch unter reichhaltigen Toppings und warmen Saucen nicht durch – die perfekte Basis für echte Loaded Fries!",
+  },
+  {
     q: "Was unterscheidet 30cm Longfries von herkömmlichen Pommes?",
     a: "Herkömmliche Pommes sind aus geschnittenen Kartoffeln und selten länger als 7–10 cm. Unsere Longfries werden aus einem hochwertigen Kartoffelteig (93% getrocknete Qualitätskartoffeln) frisch vor Ort in 30 cm Länge gepresst und in ca. 120 Sekunden bei 175°C gebacken. Sie nehmen ca. 40% weniger Fett auf, bleiben spürbar länger knusprig und sind ein unverwechselbarer Eyecatcher!",
   },

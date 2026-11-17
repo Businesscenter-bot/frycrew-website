@@ -159,11 +159,23 @@ export default function LongfriesStory() {
               ))}
             </div>
 
-            {/* Fun Quote Box */}
-            <div className="mt-10 p-4 rounded-xl bg-[#283323] border border-[#A67C2D]/40 text-center">
-              <p className="font-script text-2xl text-[#FEC72E]">
-                „Pommes, die man nicht einfach nur isst – sondern über die man spricht!“
-              </p>
+            {/* Fun Quote & Loaded Fries Benefit Box */}
+            <div className="mt-10 space-y-4">
+              <div className="p-5 rounded-2xl bg-[#283323] border border-[#A67C2D]/50 text-center space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#FEC72E] bg-[#1A2217] px-3 py-1 rounded-full border border-[#A67C2D]/30 inline-block">
+                  Die Königsklasse der Loaded Fries
+                </span>
+                <p className="text-sm sm:text-base text-[#F5F2E9]/90 max-w-2xl mx-auto leading-relaxed">
+                  Herkömmliche Pommes weichen unter warmem Cheddarkäse, Trüffelmayo oder herzhaften Toppings schnell auf. 
+                  Unsere <strong>30cm Longfries</strong> bieten die perfekte stabile Basis: Durch den feinen Kartoffelteig und die extra krosse Kruste bleiben sie auch als <strong>voll beladene Loaded Fries</strong> bis zum letzten Zentimeter unwiderstehlich knusprig!
+                </p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-[#1A2217] border border-[#A67C2D]/30 text-center">
+                <p className="font-script text-2xl text-[#FEC72E]">
+                  „Pommes, die man nicht einfach nur isst – sondern über die man spricht!“
+                </p>
+              </div>
             </div>
 
           </div>

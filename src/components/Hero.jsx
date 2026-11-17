@@ -37,9 +37,9 @@ export default function Hero({ onOpenBooking }) {
               <div className="space-y-1.5">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D3928] border border-[#A67C2D]/60 text-[#FEC72E] text-xs font-bold tracking-wider uppercase shadow-inner">
                   <Sparkles className="w-3.5 h-3.5" />
-                  <span>Der mobile Foodtruck in Hannover</span>
+                  <span>30cm Long Fries & Loaded Fries Foodtruck</span>
                   <span className="text-[#F5F2E9]/60">·</span>
-                  <span className="text-[#F5F2E9]">Est. 2026</span>
+                  <span className="text-[#F5F2E9]">Hannover</span>
                 </div>
                 <div className="text-xs sm:text-sm font-medium text-[#F5F2E9]/80 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -61,7 +61,7 @@ export default function Hero({ onOpenBooking }) {
 
             {/* Subparagraph */}
             <p className="text-base sm:text-lg text-[#F5F2E9]/85 max-w-2xl leading-relaxed font-light">
-              Willkommen bei der <strong className="text-[#F5F2E9] font-semibold">FryCrew</strong>! Wir bringen die spektakulärsten <span className="text-[#FEC72E] font-bold">30 cm langen Pommes</span> frisch auf dein Event. Vor deinen Augen gepresst, goldbraun frittiert und mit sündig guten Toppings serviert.
+              Willkommen bei der <strong className="text-[#F5F2E9] font-semibold">FryCrew</strong>! Wir bringen die spektakulärsten <span className="text-[#FEC72E] font-bold">30 cm Long Fries & Gourmet Loaded Fries</span> frisch auf dein Event. Vor deinen Augen gepresst, goldbraun frittiert und mit sündig guten Toppings serviert.
             </p>
 
             {/* Regional Limitation Alert Banner */}

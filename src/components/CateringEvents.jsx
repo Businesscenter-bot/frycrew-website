@@ -9,19 +9,19 @@ export default function CateringEvents({ onOpenBooking }) {
     {
       icon: Briefcase,
       title: 'Firmenfeiern & Teamevents',
-      desc: 'Ob Sommerfest auf dem Firmengelände, Weihnachtsfeier, Jubiläum oder Afterwork: 30cm Pommes begeistern Mitarbeiter und Kunden gleichermaßen.',
+      desc: 'Ob Sommerfest auf dem Firmengelände, Weihnachtsfeier, Jubiläum oder Afterwork: 30cm Long Fries und Loaded Fries begeistern Mitarbeiter und Kunden gleichermaßen.',
       benefits: ['Schnelle Ausgabe ohne Schlangen', 'Rechnung mit MwSt.', 'Individuelles Menü-Branding'],
     },
     {
       icon: Heart,
       title: 'Hochzeiten & Polterabende',
-      desc: 'Der ultimative Mitternachtssnack! Wenn die Party auf dem Höhepunkt ist, rollt der Foodtruck vor und serviert heiße, knusprige 30cm Fries.',
-      benefits: ['Unvergesslicher Überraschungs-Effekt', 'Gourmet-Toppings (z.B. Trüffel)', 'Kein Geschirr-Aufwand'],
+      desc: 'Der ultimative Mitternachtssnack! Wenn die Party auf dem Höhepunkt ist, rollt der Foodtruck vor und serviert heiße 30cm Fries und cremige Loaded Fries.',
+      benefits: ['Unvergesslicher Überraschungs-Effekt', 'Gourmet Loaded Fries (z.B. Trüffel)', 'Kein Geschirr-Aufwand'],
     },
     {
       icon: Cake,
       title: 'Geburtstage & Private Partys',
-      desc: 'Runder Geburtstag oder Gartenparty? Mach dein Fest zum Streetfood-Erlebnis und genieße deine eigene Feier völlig stressfrei.',
+      desc: 'Runder Geburtstag oder Gartenparty? Mach dein Fest zum Streetfood-Erlebnis mit frischen Loaded Fries und genieße deine eigene Feier völlig stressfrei.',
       benefits: ['Ab ca. 35-40 Personen buchbar', 'Kinder & Erwachsene begeistert', 'Komplett autark möglich'],
     },
     {
@@ -46,7 +46,7 @@ export default function CateringEvents({ onOpenBooking }) {
             FRYCREW FÜR DEIN EVENT <span className="text-[#A67C2D]">BUCHEN</span>
           </h2>
           <p className="text-base sm:text-lg text-[#222B1E]/80 leading-relaxed">
-            Mache deine Veranstaltung zum kulinarischen Highlight. Ob 40 oder 500 Gäste: Wir bringen den Duft frischer Kartoffeln und die längsten Pommes Hannovers direkt zu deiner Location.
+            Mache deine Veranstaltung zum kulinarischen Highlight. Ob 40 oder 500 Gäste: Wir bringen den Duft frischer Kartoffeln, 30cm Long Fries und heiß geliebte Loaded Fries direkt zu deiner Location in Hannover & Region.
           </p>
         </div>
 

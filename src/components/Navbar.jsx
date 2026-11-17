@@ -17,7 +17,7 @@ export default function Navbar({ onOpenBooking, onOpenImpressum, onOpenDatenschu
 
   const navLinks = [
     { label: 'Was sind Longfries?', href: '#longfries' },
-    { label: 'Menü & Toppings', href: '#menu' },
+    { label: 'Loaded Fries Menü', href: '#menu' },
     { label: 'Über uns', href: '#about' },
     { label: 'Catering buchen', href: '#catering' },
     { label: 'Tourdaten & News', href: '#tour-news' },
@@ -102,7 +102,7 @@ export default function Navbar({ onOpenBooking, onOpenImpressum, onOpenDatenschu
                 FRYCREW
               </span>
               <span className="text-[10px] sm:text-[11px] tracking-widest text-[#FEC72E] font-bold uppercase -mt-0.5">
-                30cm Longfries · Hannover
+                30cm Long & Loaded Fries · Hannover
               </span>
             </div>
           </a>

@@ -34,7 +34,7 @@ export default function Footer({ onOpenImpressum, onOpenDatenschutz }) {
             </p>
 
             <p className="text-xs sm:text-sm text-[#F5F2E9]/75 max-w-sm leading-relaxed">
-              Streetfood mit Manufaktur-Charakter. Dein Foodtruck für spektakuläre 30cm Pommes in Hannover und der gesamten Region Hannover.
+              Streetfood mit Manufaktur-Charakter. Dein Foodtruck für spektakuläre 30cm Longfries & Loaded Fries in Hannover und der gesamten Region Hannover.
             </p>
 
             <div className="pt-2">
@@ -86,7 +86,7 @@ export default function Footer({ onOpenImpressum, onOpenDatenschutz }) {
               </li>
               <li>
                 <a href="#menu" className="hover:text-[#FEC72E] transition-colors">
-                  Toppings & Saucen
+                  Loaded Fries & Saucen
                 </a>
               </li>
               <li>

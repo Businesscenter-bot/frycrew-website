@@ -13,13 +13,13 @@ export default function MenuShowcase() {
         <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#222B1E] text-[#FEC72E] text-xs font-bold uppercase tracking-wider">
             <UtensilsCrossed className="w-3.5 h-3.5" />
-            <span>Handwerkliche Streetfood-Kreationen</span>
+            <span>Handwerkliche Loaded Fries & Signature Toppings</span>
           </div>
           <h2 className="font-bebas text-4xl sm:text-5xl lg:text-6xl tracking-tight text-[#222B1E]">
-            UNSERE <span className="text-[#A67C2D]">LONG FRIES KREATIONEN</span>
+            UNSERE <span className="text-[#A67C2D]">LOADED LONG FRIES KREATIONEN</span>
           </h2>
           <p className="text-base sm:text-lg text-[#222B1E]/80">
-            Jede Portion wird mit 30 cm frisch gepressten Longfries serviert. Knusprig, heiß und mit besten Saucen und Toppings veredelt.
+            Jede Portion wird mit 30 cm frisch gepressten Longfries serviert – als unvergleichliche Loaded Fries mit Gourmet-Toppings, Cheddar Melt und handgemachten Saucen.
           </p>
         </div>
 
