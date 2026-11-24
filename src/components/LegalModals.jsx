@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { X, Shield, FileText } from 'lucide-react';
+import { X, Shield, FileText, Cookie } from 'lucide-react';
 
 export function LegalModal({ title, isOpen, onClose, children }) {
   if (!isOpen) return null;
@@ -121,7 +121,11 @@ export function DatenschutzContent() {
         </p>
         <p><strong>Wie erfassen wir Ihre Daten?</strong></p>
         <p>
-          Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in unser Catering-Anfrageformular eingeben. Andere Daten werden automatisch oder nach Ihrer Einwilligung beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind vor allem technische Daten (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+          Ihre Daten werden zum einen dadurch erhoben, dass Sie uns diese mitteilen. Hierbei kann es sich z. B. um Daten handeln, die Sie in unser Catering-Anfrageformular eingeben. Andere Daten werden beim Besuch der Website durch unsere IT-Systeme erfasst. Das sind ausschließlich notwendige technische Daten zur Auslieferung der Seite (z. B. Internetbrowser, Betriebssystem oder Uhrzeit des Seitenaufrufs).
+        </p>
+        <p><strong>Verwenden wir Cookies oder Tracker?</strong></p>
+        <p>
+          Nein. Unsere Website ist zu 100 % frei von Cookies und Tracking-Tools. Es werden keine Nutzungsprofile erstellt und es ist kein störendes Cookie-Banner erforderlich.
         </p>
         <p><strong>Wofür nutzen wir Ihre Daten?</strong></p>
         <p>
@@ -195,9 +199,27 @@ export function DatenschutzContent() {
         </div>
       </div>
 
-      <div className="pt-2 border-t border-[#A67C2D]/20 space-y-3">
+      <div className="pt-2 border-t border-[#A67C2D]/20 space-y-4">
         <h4 className="font-bebas text-2xl text-[#222B1E] mb-2">4. Datenerfassung auf dieser Website</h4>
         
+        <div>
+          <h5 className="font-bold text-xs uppercase text-[#A67C2D]">Cookies & Verzicht auf Tracking</h5>
+          <div className="bg-[#222B1E]/5 border border-[#A67C2D]/30 rounded-2xl p-4 mt-2 space-y-2">
+            <div className="flex items-center gap-2 text-[#222B1E] font-bold">
+              <Cookie className="w-5 h-5 text-[#A67C2D]" />
+              <span className="text-sm sm:text-base">100 % cookie- und trackingfrei</span>
+            </div>
+            <p className="leading-relaxed">
+              Wir schätzen Ihre Privatsphäre und verzichten ganz bewusst auf lästige Cookie-Banner und Datenanalysen: 
+              Unsere Website setzt <strong>weder technisch notwendige noch einwilligungspflichtige Analyse-, Marketing- oder Werbe-Cookies</strong> ein. 
+              Es kommen keinerlei Third-Party-Tracker, Webanalyse-Dienste (wie Google Analytics) oder Social-Media-Pixel (wie von Meta / Facebook) zum Einsatz.
+            </p>
+            <p className="leading-relaxed">
+              Sie können sich auf unserer Seite vollkommen frei und unbeschwert bewegen, ohne dass Informationen auf Ihrem Endgerät gespeichert oder Profile über Ihr Surfverhalten angelegt werden. Ein Cookie-Banner ist aus diesem Grund gesetzlich nicht erforderlich.
+            </p>
+          </div>
+        </div>
+
         <div>
           <h5 className="font-bold text-xs uppercase text-[#A67C2D]">Anfrageformular / Catering-Buchung</h5>
           <p className="mt-1">
